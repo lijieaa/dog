@@ -1,10 +1,12 @@
-<html layout:decorator="layout/layout">
+<html layout:decorator="layout/mainLayout">
 
 
 <div layout:fragment="content">
     <p th:text="'Hello, ' + ${name} + '!'" />
     <h2 th:text="#{app.name}">List of Seed Starters</h2>
     <h2 th:text="${#themes.code('bower_components')}">List of Seed Starters</h2>
+
+    <a th:href="${#themes.code('bower_components')+'aaaaaa'}">lllllllll</a>
 </div>
 
 

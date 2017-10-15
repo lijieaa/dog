@@ -1,0 +1,71 @@
+<html layout:decorator="layout/mainLayout">
+
+
+<div layout:fragment="content">
+    <table id="wx-table" class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Rendering engine</th>
+            <th>Browser</th>
+            <th>Platform(s)</th>
+            <th>Engine version</th>
+            <th>CSS grade</th>
+            <th>CSS grade</th>
+            <th>操作</th>
+
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>Rendering engine</th>
+            <th>Browser</th>
+            <th>Platform(s)</th>
+            <th>Engine version</th>
+            <th>CSS grade</th>
+            <th>操作</th>
+        </tr>
+        </tfoot>
+    </table>
+    <script>
+        $(function () {
+            $('#wx-table').DataTable({
+                'paging'      : true,
+                'lengthChange': true,
+                'searching'   : true,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false,
+                "oLanguage": {
+                    "sLengthMenu": "每页显示 _MENU_ 条记录",
+                    "sZeroRecords": "抱歉， 没有找到",
+                    "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                    "sInfoEmpty": "没有数据",
+                    "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                    "oPaginate": {
+                        "sFirst": "首页",
+                        "sPrevious": "前一页",
+                        "sNext": "后一页",
+                        "sLast": "尾页"
+                    },
+                    "sSearch": "搜索:",
+                },
+                "processing": true,
+                "serverSide": true,
+                "ajax": "/adminlte/data.json",
+                "columnDefs": [
+                    {
+                        "targets": 6,
+                        "render": function ( data, type, row ) {
+                            return '<button type="button" class="btn btn-danger btn-sm" data-widget="remove" data-toggle="tooltip" title="" data-original-title="删除"> <i class="fa fa-times"></i></button><button type="button" class="btn btn-primary btn-sm" data-widget="edit" data-toggle="tooltip" title="" data-original-title="编辑"> <i class="fa fa-edit"></i></button>';
+                        }
+                    }
+                ]
+            })
+        })
+    </script>
+</div>
+
+
+
+
+</html>

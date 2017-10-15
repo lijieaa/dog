@@ -15,7 +15,6 @@ import org.springframework.web.servlet.theme.SessionThemeResolver;
 /**
  * Created by jay on 2017/10/12.
  */
-@Controller
 @SpringBootApplication
 public class Application {
 
@@ -23,12 +22,6 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-
-    @RequestMapping("/greeting")
-    public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("name", name);
-        return "greeting";
-    }
 
     /**
      * 设置主题存放目录
